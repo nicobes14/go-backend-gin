@@ -19,7 +19,9 @@ func main() {
 
 	r := gin.Default()
 
-	r.POST("/register", controllers.Register)
+	// task routes
+	r.POST("/task", controllers.CreateTask)
+	r.GET("/task", controllers.GetTasks)
 
 	r.Run(":" + PORT) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
