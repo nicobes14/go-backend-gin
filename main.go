@@ -1,8 +1,8 @@
 package main
 
 import (
-	"go-backend-gin/controllers"
 	"go-backend-gin/initializers"
+	"go-backend-gin/routes"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -20,8 +20,7 @@ func main() {
 	r := gin.Default()
 
 	// task routes
-	r.POST("/task", controllers.CreateTask)
-	r.GET("/task", controllers.GetTasks)
+	routes.TasksRoutes(r)
 
 	r.Run(":" + PORT) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }

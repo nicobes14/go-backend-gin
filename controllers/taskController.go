@@ -10,12 +10,19 @@ import (
 
 func GetTaskInfo(c *gin.Context) {
 	// obtener el task ID desde los params
-
+	id := c.Param("id")
 	// obtener los datos desde la base de datos
+	result, task := services.GetTask(id)
 
+	if result.Error != nil {
+		c.Status(404222)
+		return
+	}
 	// enviar los datos al cliente
 	c.JSON(http.StatusOK, gin.H{
-		"message": "aaaa",
+		"status":  "200",
+		"message": "Tasks ",
+		"task":    task,
 	})
 }
 
