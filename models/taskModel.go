@@ -8,8 +8,3 @@ type Task struct {
 	Description string
 	Done        bool `gorm:"default:false"`
 }
-
-type CreateTask struct {
-	Title       string `json:"title" binding:"required"`
-	Description string `json:"description" binding:"required"`
-}

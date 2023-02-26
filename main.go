@@ -22,5 +22,8 @@ func main() {
 	// task routes
 	routes.TasksRoutes(r)
 
+	// user routes
+	routes.UserRoutes(r)
+
 	r.Run(":" + PORT) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }

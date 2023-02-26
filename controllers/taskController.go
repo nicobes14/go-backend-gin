@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"go-backend-gin/models"
+	dto "go-backend-gin/models/dtos"
 	"go-backend-gin/services"
 	"net/http"
 
@@ -15,7 +16,7 @@ func GetTaskInfo(c *gin.Context) {
 	result, task := services.GetTask(id)
 
 	if result.Error != nil {
-		c.Status(404222)
+		c.Status(404)
 		return
 	}
 	// enviar los datos al cliente
@@ -67,7 +68,7 @@ func UpdateTask(c *gin.Context) {
 
 func CreateTask(c *gin.Context) {
 
-	var body models.CreateTask
+	var body dto.CreateTaskDTO
 	if err := c.ShouldBindJSON(&body); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
